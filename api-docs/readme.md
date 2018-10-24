@@ -1,4 +1,4 @@
-# Daylio Flask API Docs
+# Moodz Flask API Docs
 
 ## Requirements
 
