@@ -1,0 +1,11 @@
+version: "3"
+services:
+  api-docs:
+    build: ./api-docs
+    ports:
+      - "8080:80"
+
+  api:
+    build: ./app
+    ports:
+      - "80:80"

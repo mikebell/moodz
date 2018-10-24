@@ -1,0 +1,73 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: Moodz API Auto Mocking
+    url: https://virtserver.swaggerhub.com/mikebell9/moodz-docs-api/1.0.0
+info:
+  description: API for Moodz Python Flask application
+  version: "1.0.0"
+  title: Moodz API
+  contact:
+    email: hello@mikebell.io
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /mood/{mood}:
+    get:
+      summary: Returns all moods of type
+      description: |
+        Returns all moods of type passed in through path.
+      parameters:
+        - in: path
+          name: mood
+          description: pass a required mood
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns all mood results matching mood requested
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MoodsDefault'
+        '404':
+          description: No moods found
+  /mood:
+    get:
+      summary: Returns all moods
+      description: |
+        Returns all moods available.
+      responses:
+        '200':
+          description: Returns all moods
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MoodsDefault'
+        '404':
+          description: No moods found
+components:
+  schemas:
+    MoodsDefault:
+      properties:
+        mood:
+          type: string
+          example: awesome
+        mood_rating:
+          type: integer
+          example: 4
+        activites:
+          type: string
+          example: waifu
+        note:
+          type: string
+          example: spent the day with waifu
+        timestamp:
+          type: integer
+          example: 1539787901
